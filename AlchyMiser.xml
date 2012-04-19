@@ -1,0 +1,89 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ 
+ ..\..\FrameXML\UI.xsd">
+	<Script file="AlchyMiser.lua" />
+
+	<Frame name="frmMain" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="150" y="120" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="200" y="50" />
+			</Anchor>
+		</Anchors>
+		
+		<TitleRegion name="AlchyMiser" setAllPoints="true">
+			<Size>
+				<AbsDimension x="0" y="30" />
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" />
+				<Anchor point="TOPRIGHT" />
+			</Anchors>
+		</TitleRegion>
+
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+			<Button name="btnClose" inherits="UIPanelCloseButton" parent="frmMain">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset x="3" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>frmMain:Hide();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="btnUpdatePrices" inherits="UIPanelButtonTemplate" text="Update Prices" parent="frmMain">
+				<Size>
+					<AbsDimension x="110" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset x="0" y="-18" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>UpdatePrices();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="btnUpdateRecipes" inherits="UIPanelButtonTemplate" text="Update Recipes" parent="frmMain">
+				<Size>
+					<AbsDimension x="110" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset x="0" y="18" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>UpdateRecipes();</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<!-- Event Handling -->
+		<Scripts>
+			<OnLoad>
+				AlchyMiserInit();
+			</OnLoad>
+			<OnDragStart>
+				self:StartMoving();
+			</OnDragStart>
+			<OnDragStop>
+				self:StopMovingOrSizing();
+			</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

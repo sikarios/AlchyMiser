@@ -1,0 +1,8 @@
+## Author: Cameron Korb
+## Interface: 40300
+## Notes: AlchyMiser is a fairly simple addon that uses local auction house market data to determine the cost and subsequent profit of crafting various Alchemy recipes such as flasks and transmutes.
+## SavedVariables: priceList, recipeList
+## Title: AlchyMiser
+## Version: 1.1
+AlchyMiser.lua
+AlchyMiser.xml
